@@ -1,0 +1,8 @@
+{
+  "id":"bananagis-phase1",
+  "title":"BananaGIS — Thailand",
+  "basemap":"osm",
+  "layers":[{"id":"banana-farms","title":"แปลงกล้วย","source":"../sample-data/banana-farms.geojson","geometry":"polygon","visible":true,"popup":["farm_id","province","amphoe","tambon","area_rai","status"]}],
+  "defaultView":{"center":[100.0,8.4],"zoom":9},
+  "futureLayers":["banana-health","banana-dealers","banana-harvest"]
+}

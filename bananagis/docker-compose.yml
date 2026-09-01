@@ -1,0 +1,13 @@
+services:
+  api:
+    build: ./api
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      PORT: 8787
+      HOST: 0.0.0.0
+      CORS_ORIGIN: "*"
+      BANANAGIS_DATA_FILE: /app/data/farms.json
+    volumes:
+      - ./api/data:/app/data

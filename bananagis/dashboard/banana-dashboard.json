@@ -1,0 +1,8 @@
+{
+  "title":"BananaGIS Dashboard — Phase 1",
+  "kpis":[{"id":"farm_count","label":"จำนวนแปลง","field":"farm_id","aggregation":"count"},{"id":"area_rai","label":"พื้นที่ปลูก (ไร่)","field":"area_rai","aggregation":"sum"}],
+  "map":"banana-map-config.json",
+  "filters":["province","amphoe","tambon","status"],
+  "panels":["KPI","Map","Farm List","Farm Details"],
+  "futureKpis":["grower_count","plant_count","harvest_ton","health_score"]
+}
