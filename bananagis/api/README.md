@@ -1,18 +1,31 @@
-# BananaGIS Data API
+# BananaGIS API / Web Server
 
-This repository includes a deployment-ready API contract for persistent farm data.
+## Run with Node.js 20+
 
-## Current deployment target
+```bash
+npm start
+```
 
-The API is designed for a serverless JSON store and uses a simple REST contract:
+Open `http://localhost:8787/` for the BananaGIS web app.
 
-- `GET /api/farms` — list farms
-- `POST /api/farms` — create farm
-- `PUT /api/farms/:farm_id` — update farm
-- `DELETE /api/farms/:farm_id` — delete farm
+Health check: `http://localhost:8787/health`
 
-The frontend can use `BANANAGIS_API_URL` to point to the deployed API. Until an API URL is configured, the application uses IndexedDB locally and exports GeoJSON.
+## Run with Docker
 
-## Production requirement
+```bash
+docker compose -f docker-compose.yml up -d --build
+```
 
-Deploy the API behind HTTPS and configure authentication before multi-user operational use. Do not put database credentials in frontend JavaScript.
+The application is available at `http://localhost:8787/`. Data is persisted in the `bananagis_data` Docker volume.
+
+## API
+
+- `GET /api/farms`
+- `GET /api/farms/:farm_id`
+- `POST /api/farms`
+- `PUT /api/farms/:farm_id`
+- `DELETE /api/farms/:farm_id`
+
+## Production note
+
+The current persistent store is a JSON file and is appropriate for a small single-instance MVP. Before public multi-user deployment, put HTTPS/reverse proxy and authentication/authorization in front of the service and migrate the datastore to PostgreSQL/PostGIS.
