@@ -1,0 +1,12 @@
+{
+  "title": "BananaGIS Field Survey — Phase 1",
+  "version": "1.0",
+  "sections": [
+    {"name":"grower","label":"เกษตรกร","fields":["grower_id","name","phone"]},
+    {"name":"farm","label":"แปลงกล้วย","fields":["farm_id","province","amphoe","tambon","area_rai","irrigation","status","geometry"]},
+    {"name":"planting","label":"รุ่นการปลูก","fields":["planting_id","variety","planting_date","plant_count","spacing_m"]},
+    {"name":"health","label":"สุขภาพกล้วย","fields":["observed_at","health_score","symptoms","photo_url"]}
+  ],
+  "varieties":["กล้วยน้ำว้า","กล้วยหอมทอง","กล้วยไข่","กล้วยหักมุก","กล้วยเล็บมือนาง","กล้วยหอมเขียว","อื่น ๆ"],
+  "health_levels":[{"min":80,"max":100,"label":"Healthy"},{"min":60,"max":79.99,"label":"Watch"},{"min":40,"max":59.99,"label":"Warning"},{"min":0,"max":39.99,"label":"Critical"}]
+}
