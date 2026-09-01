@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/i-MIS/GeoLibre/bananagis/schema/banana-schema.json",
+  "title": "BananaGIS Phase 1 Data Model",
+  "type": "object",
+  "properties": {
+    "banana_grower": {"type":"object","required":["grower_id","name"],"properties":{"grower_id":{"type":"string"},"name":{"type":"string"},"phone":{"type":"string"},"organization":{"type":"string"}}},
+    "banana_farm": {"type":"object","required":["farm_id","grower_id","area_rai"],"properties":{"farm_id":{"type":"string"},"grower_id":{"type":"string"},"province":{"type":"string"},"amphoe":{"type":"string"},"tambon":{"type":"string"},"area_rai":{"type":"number","minimum":0},"irrigation":{"type":"string"},"status":{"type":"string"}}},
+    "banana_planting": {"type":"object","required":["planting_id","farm_id","variety","planting_date"],"properties":{"planting_id":{"type":"string"},"farm_id":{"type":"string"},"variety":{"type":"string"},"planting_date":{"type":"string","format":"date"},"plant_count":{"type":"integer","minimum":0},"spacing_m":{"type":"number","minimum":0},"status":{"type":"string"}}},
+    "banana_health": {"type":"object","required":["health_id","planting_id","observed_at","health_score"],"properties":{"health_id":{"type":"string"},"planting_id":{"type":"string"},"observed_at":{"type":"string","format":"date-time"},"health_score":{"type":"number","minimum":0,"maximum":100},"symptoms":{"type":"string"},"photo_url":{"type":"string"}}},
+    "banana_harvest": {"type":"object","required":["harvest_id","planting_id","harvest_date","quantity_ton"],"properties":{"harvest_id":{"type":"string"},"planting_id":{"type":"string"},"harvest_date":{"type":"string","format":"date"},"quantity_ton":{"type":"number","minimum":0},"dealer_id":{"type":"string"},"price_baht_per_kg":{"type":"number","minimum":0}}},
+    "banana_dealer": {"type":"object","required":["dealer_id","name"],"properties":{"dealer_id":{"type":"string"},"name":{"type":"string"},"dealer_type":{"type":"string"},"phone":{"type":"string"},"address":{"type":"string"}}}
+  }
+}
