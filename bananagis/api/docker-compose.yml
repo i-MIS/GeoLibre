@@ -1,0 +1,16 @@
+services:
+  bananagis:
+    build: .
+    container_name: bananagis
+    ports:
+      - "8787:8787"
+    environment:
+      PORT: 8787
+      BANANAGIS_DATA_FILE: /data/farms.json
+      CORS_ORIGIN: "*"
+    volumes:
+      - bananagis_data:/data
+    restart: unless-stopped
+
+volumes:
+  bananagis_data:
